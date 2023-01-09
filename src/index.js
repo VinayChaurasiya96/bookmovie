@@ -25,8 +25,13 @@ appRouter.route("/booking").post( async (req,res)=>{
 })
 
 appRouter.route("/booking").get(async (req,res)=>{
-    const bookings = await connection.find();
-    res.send(bookings);
+    const bookings = await connection.find().sort({createdAt: 1});
+    const lastbooking = bookings[bookings.length-1];
+    if(lastbooking){
+        res.send(lastbooking);
+    }else{
+        res.send({});
+    }
 })
 
 

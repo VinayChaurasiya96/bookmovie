@@ -12,6 +12,9 @@ const bookMovieSchema = new Schema({
         D2: Schema.Types.Number
     }
 
-})
+},
+
+{timestamps:true}
+)
 
 exports.bookMovieSchema = bookMovieSchema;
